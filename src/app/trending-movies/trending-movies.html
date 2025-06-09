@@ -1,0 +1,44 @@
+<!-- Trending Movies Page with Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="futureMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menu
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="futureMenu">
+            <li><span class="dropdown-item disabled">Coming soon...</span></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-danger ms-3" (click)="logout()">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="login-container">
+  <div class="login-box" style="width:100%;max-width:900px;">
+    <h2>Trending Movies</h2>
+    <p class="subtitle">Check out what's trending this week!</p>
+    <div *ngIf="loading" style="text-align:center;">Loading...</div>
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+    <div *ngIf="!loading && !error">
+      <div class="row" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;">
+        <div *ngFor="let movie of movies" class="card" style="width:200px;margin-bottom:24px;box-shadow:0 2px 8px #e0e0e0;border-radius:12px;overflow:hidden;">
+          <img *ngIf="movie.poster_path" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{movie.title}} poster" style="width:100%;height:300px;object-fit:cover;">
+          <div class="card-body" style="padding:1rem;">
+            <h5 class="card-title" style="font-size:1.1rem;font-weight:600;margin-bottom:0.5rem;">{{ movie.title }}</h5>
+            <p class="card-text" style="font-size:0.95rem;color:#4a4e69;">{{ movie.release_date }}</p>
+            <p class="card-text" style="font-size:0.95rem;color:#22223b;">⭐ {{ movie.vote_average }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

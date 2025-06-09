@@ -1,0 +1,20 @@
+/* signup page styles - reuse login styles */
+@import '../user/user.css';
+
+.login-container {
+  padding-top: 64px;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.login-box {
+  margin-bottom: 0;
+}
+
+.navbar {
+  border-bottom: none !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
+}

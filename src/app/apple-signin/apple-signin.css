@@ -1,0 +1,25 @@
+/* Apple sign-in page styles - reuse login styles */
+@import url('../user/user.css');
+
+.login-container {
+  padding-top: 64px;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.navbar {
+  border-bottom: none !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
+}
+
+.login-box {
+  margin-bottom: 0;
+}
